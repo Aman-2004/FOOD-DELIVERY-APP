@@ -20,7 +20,7 @@ npm install              # Install dependencies
 npm run dev              # Start dev server (nodemon)
 npm start                # Start production server
 ```
-**Runs on:** http://localhost:5000
+**Runs on:** http://localhost:3000
 
 ### Frontend (React + Vite)
 ```bash
@@ -92,23 +92,26 @@ Features available depend on completed phases. As phases are completed, update t
 
 ## Important Constraints
 
-### Security
-- Never commit `.env` files
-- Always use `asyncHandler` for async routes
-- Validate input with Joi
-- Use `helmet` for security headers
-- Hash passwords with bcrypt
+> **Development Focus:** This project prioritizes learning and development. Production concerns (security hardening, optimization, deployment) are documented in `backend/downside.md` and will be addressed after Phase 9.
+
+### Security (Development Phase)
+- Never commit `.env` files to git
+- Always use `asyncHandler` for async routes (prevents crashes)
+- Hash passwords with bcrypt (Phase 1+)
+- **Production security** (helmet, rate limiting, CORS restrictions): See `backend/downside.md`
 
 ### Code Quality
 - Centralized error handling (`errorHandler` middleware)
-- Consistent responses (`ApiResponse` utility)
-- Custom errors (`ApiError` utility)
+- Consistent responses (`ApiResponse` utility - Phase 1+)
+- Custom errors (`ApiError` utility - Phase 1+)
 - Log requests in development (`morgan`)
+- **Note:** Error handler shows stack traces for easier debugging (will be environment-specific in production)
 
 ### Testing
 - Test each feature after building
 - Use Postman/curl for API testing
-- Verify auth with protected routes
+- Verify auth with protected routes (Phase 1+)
+- Focus on manual testing during development
 
 ## Learning-Focused Approach
 
@@ -175,8 +178,26 @@ router.post('/', protect, validate(schema), create);
 
 ## Current State
 
-**Phase:** Not started
-**Next:** Phase 0 - Project Foundation
+**Phase:** Phase 0 - Foundation Setup ✅ (In Progress)
+**Next:** Phase 1 - Authentication & Authorization
+
+### Completed Setup
+- ✅ Express server with proper startup flow (waits for DB connection)
+- ✅ MongoDB connection with error handling
+- ✅ Middleware setup (CORS, JSON parser, Morgan logging)
+- ✅ Centralized error handling
+- ✅ 404 handler for undefined routes
+- ✅ Environment configuration (.env)
+
+### Production Issues Tracker
+All production-related optimizations, security hardening, and performance improvements are tracked in `backend/downside.md`. These will be addressed **after Phase 9** to avoid overwhelming complexity during the learning phase.
+
+### Development Philosophy
+- **Focus:** Building features and understanding core concepts
+- **Testing:** Manual testing with Postman/curl
+- **Errors:** Stack traces shown for easier debugging
+- **Security:** Basic security only (full hardening deferred to deployment)
+- **Performance:** Defaults are fine (optimization comes later)
 
 As phases are completed, this section will be updated with:
 - Completed features

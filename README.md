@@ -1,6 +1,8 @@
 # 🍕 Food Delivery Application - Full Stack Learning Project
 
-A production-grade food delivery platform built from scratch to learn full-stack development, clean architecture, and real-world system design.
+A full-stack food delivery platform built from scratch to learn full-stack development, clean architecture, and real-world system design.
+
+> **Note:** This is a **learning-focused project**. Production optimizations, security hardening, and deployment concerns are documented in `backend/downside.md` and will be addressed after completing all 9 phases.
 
 ## 📋 Project Overview
 
@@ -88,7 +90,8 @@ npm run dev
 
 **Access:**
 - Frontend: http://localhost:5173
-- Backend: http://localhost:5000
+- Backend: http://localhost:3000
+- Health Check: http://localhost:3000/health
 
 ---
 
@@ -106,8 +109,19 @@ This project follows a **phase-by-phase approach**:
 
 ## 📝 Current Phase
 
-**Phase:** Not started
-**Next:** Phase 0 - Project Foundation
+**Phase:** Phase 0 - Foundation Setup ✅ (In Progress)
+**Next:** Phase 1 - Authentication & Authorization
+
+### Completed Foundation Work
+- ✅ Express server with proper startup flow (waits for DB connection)
+- ✅ MongoDB connection with error handling
+- ✅ Middleware setup (CORS, JSON parser, Morgan logging)
+- ✅ Centralized error handling
+- ✅ 404 handler for undefined routes
+- ✅ Environment configuration
+
+### Development Focus
+This project prioritizes **learning and understanding**. Production concerns (rate limiting, helmet, compression, etc.) are tracked in `backend/downside.md` and will be addressed after Phase 9.
 
 ---
 
@@ -115,24 +129,23 @@ This project follows a **phase-by-phase approach**:
 
 ### Backend (.env)
 ```env
-PORT=5000
-NODE_ENV=development
+PORT=3000
 MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
 ```
 
 ### Frontend (.env)
 ```env
-VITE_API_URL=http://localhost:5000
+VITE_API_URL=http://localhost:3000
 ```
 
-*More variables will be added as we progress through phases.*
+**Note:** More variables (JWT_SECRET, NODE_ENV, etc.) will be added as we progress through phases.
 
 ---
 
 ## 📚 Documentation
 
 - **CLAUDE.md** - Guide for AI assistants
+- **backend/downside.md** - Production issues tracker (to fix after Phase 9)
 - **docs/PHASE-BREAKDOWN.md** - Complete phase breakdown
 - **docs/api-documentation.md** - API reference (built as we go)
 - **docs/database-schema.md** - Database design (built as we go)
